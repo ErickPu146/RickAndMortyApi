@@ -5,14 +5,15 @@ const buscar = document.querySelector('#buscar');
 const inputBuscar = document.querySelector('#inputBuscar');
 const atras = document.querySelector('#atras');
 const siguiente = document.querySelector('#siguiente');
+const filters = document.querySelectorAll(".btn-check")
 let items;
 
 const dibujarCards = (results) => {
     let cardAcumuladas = '';
     results.forEach(character => {
         let card = `
-        <div class="col-6 col-sm-4 col-lg-3 mt-5">
-        <div class="card p-2 text-light" style="height: 36rem; border: 5px solid rgb(24, 212, 24); background-color:  rgb(70, 15, 90)">
+        <div class="offset-2 col-8 offset-sm-0 col-sm-6 col-md-4 mt-5 m-auto">
+        <div class="card p-2 text-light" style="height: 32rem; border: 5px solid rgb(24, 212, 24); background-color:  rgb(70, 15, 90)">
         <h5><div class="card-header">Nombre: ${character.name}</div></h5>
         <img src="${character.image}" class="card-img-top" alt="">
         <ul class="list-group list-group-flush">
@@ -20,8 +21,6 @@ const dibujarCards = (results) => {
                 ${character.gender}</li>
             <li class="list-group-item text-light border-top border-warning border-opacity-25" style="background-color:  rgb(90, 35, 90)">Especie:
                 ${character.species}</li>
-            <li class="list-group-item text-light border-top border-warning border-opacity-25" style="background-color:  rgb(90, 35, 90)">Dimension:
-                ${character.origin.name}</li>
             <li class="list-group-item text-light border-top border-warning border-opacity-25" style="background-color:  rgb(90, 35, 90)">Estado:
                 ${character.status}</li>
         </ul>
@@ -39,14 +38,20 @@ const buscarAction = () => {
     cargarDatos();
 }
 
+
 const cargarDatos = () => {
     window.fetch(characters)
-        .then((response) => response.json())
-        .then((responseJson) => {
-            dibujarCards(responseJson.results);
-            items = responseJson;
-        })    
+    .then((response) => response.json())
+    .then((responseJson) => {
+        dibujarCards(responseJson.results)
+        items = responseJson;
+        siguiente.disabled = false;
+    })
+    .catch(error => { 
+        contenedor.innerHTML = "No se encontro nada en su FILTRO"
+    })
 }
+
 cargarDatos();
 
 
@@ -64,6 +69,36 @@ const irAtras = () => {
         cargarDatos();
     }
 }
+
+const addFilterCharacter = (value, origin) => {
+    let queryString = "";
+    switch(origin)
+    {
+        case "status":
+            queryString = `status=${value}`
+        break;
+        case "species":
+            queryString = `species=${value}`
+        break;
+        case "gender":
+            queryString = `gender=${value}`
+        break;
+    }
+    
+    if(characters.includes('?'))
+    {
+        characters = characters.concat(`&${queryString}`)
+    }else{
+        characters =  characters.concat(`?${queryString}`)
+    }
+    
+    cargarDatos();
+}
+
+filters.forEach(item => item.addEventListener('click', (event) => {
+    addFilterCharacter(event.target.labels[0].textContent, event.target.name);
+}))
+
 
 
 buscar.addEventListener('click', buscarAction)

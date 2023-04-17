@@ -5,15 +5,15 @@ html {
 }
 
 header {
-    height: 30rem;
-    /* background-color: black;
+    height: 25rem;
+    background-color: black;
     background-image: url(./Assets/images/header.jpg);
     background-repeat: no-repeat;
-    background-size: 100%; */
-}
+    background-size: 100%;
+} 
 
 body {
-    background-image: url(./Assets/images/main.gif);
-    /* background-image: url(./Assets/images/portal.gif); */
+    background-image: url(./Assets/images/portal.gif);
     background-size: 100%;
 }
+

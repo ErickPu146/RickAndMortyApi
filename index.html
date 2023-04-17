@@ -8,32 +8,168 @@
     <title>Rick And Morty</title>
     <link rel="stylesheet" href="./Assets/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./deskop.css" media="screen and (min-width: 950px)">
 </head>
 
 <body>
-    <header class="text-center d-flex flex-column align-items-center">
-        <div style="width: 45rem;">
-            <img src="./Assets/images/header.png" alt="" style="width: 100%;">
+    <header class="mt-5 container justify-content-center">
+        <div class="row align-items-center ">
+            <div class="col-12 col-md-4">
+                <div id="logo">
+                    <img src="./Assets/images/header.png" alt="" style="width: 100%;">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 row m-auto">
+                    <div class="col-12 col-md-8">
+                        <input id="inputBuscar" type="text"
+                        class="form-control bg-info bg-opacity-10 text-light"
+                        style="height: 4rem; border: 3px solid rgb(208, 243, 9);">
+                    </div>
+
+                    <div class="col-8 col-md-4">
+                        <button id="buscar" class="btn btn-outline-info fs-2"
+                        style="height: 4rem; border: 3px solid rgb(208, 243, 9);">Buscar</button>
+                    </div>
+            </div>
         </div>
-        <div class="w-50 d-flex">
-            <input id="inputBuscar" type="text" class="w-75 form-control mb-3 bg-info bg-opacity-10 text-light col-12 col-md-8" style="height: 4rem; border: 3px solid rgb(208, 243, 9);">
-            <button id="buscar" class="btn btn-outline-info fs-3 col-12 col-md-4 w-25" style="height: 4rem; border: 3px solid rgb(208, 243, 9);">Buscar</button>
-        </div>
-        <div class="row w-50">
-            <button id="atras" class="fs-3 btn btn-outline-danger col-12 col-md-4" style="height: 4rem">Regresar</button>
-            <button id="siguiente" class="fs-3 btn btn-outline-primary offset-md-4 col-12 col-md-4" style="height: 4rem">Siguiente</button>
+
+        <div class="row justify-content-center">
+            <button id="atras" class="fs-3 btn btn-outline-danger col-12 col-md-3"
+                style="height: 4rem">Regresar</button>
+            <button id="siguiente" class="fs-3 btn btn-outline-primary offset-md-2 col-12 col-md-3"
+                style="height: 4rem">Siguiente</button>
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <div id="contenedor" class="row g-3">
-
+    <main class="row container-md justify-content-center m-auto">
+        <div class="col-12 col-md-3 d-flex  flex-column align-items-center">
+            <div class="text-center">
+                <h3 class="text-light">Filters</h3>
+                <a href="">Clear Filters</a>
             </div>
+            <div>
+                <div class="accordion mt-5" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Status
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="status" id="btnradio1"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio1">Alive</label>
+
+                                    <input type="radio" class="btn-check" name="status" id="btnradio2"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio2">Dead</label>
+
+                                    <input type="radio" class="btn-check" name="status" id="btnradio3"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio3">Unknown</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Species
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input value="alive" type="radio" class="btn-check" name="species"
+                                        id="btnradio4" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio4">Alien</label>
+
+                                    <input type="radio" class="btn-check" name="species" id="btnradio5"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio5">Human</label>
+
+                                    <input type="radio" class="btn-check" name="species" id="btnradio6"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio6">Unknown</label>
+
+                                </div>
+                                <div class="btn-group" role="group"
+                                    aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="species" id="btnradio7"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio7">Robot</label>
+
+                                    <input type="radio" class="btn-check" name="species" id="btnradio8"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio8">Humanoid</label>
+
+                                    <input type="radio" class="btn-check" name="species" id="btnradio9"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio9">Animal</label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Gender
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="btn-group" role="group"
+                                    aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="gender" id="btnradio10"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio10">Female</label>
+
+                                    <input type="radio" class="btn-check" name="gender" id="btnradio11"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio11">Male</label>
+
+                                    <input type="radio" class="btn-check" name="gender" id="btnradio12"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio12">Unknown</label>
+                                
+                                </div>
+
+                                <div class="btn-group" role="group"
+                                    aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="gender" id="btnradio13"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio13">Genderless</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 offset-1 col-md-8">
+            <div id="contenedor" class="row">
+
+            </div>    
         </div>
     </main>
 
+
+
+  
+
     <script src="./index.js"></script>
+    <script src="./Assets/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
