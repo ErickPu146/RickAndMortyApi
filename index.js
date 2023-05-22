@@ -105,7 +105,8 @@ filters.forEach((item) => {
 
 //Botones buscar personaje, siguiente y regresar.
 const buscarAction = () => {
-    characters = `${baseUrl}/character/?name=${inputBuscar.value}`
+    characters = `${baseUrl}/character/?name=${inputBuscar.value}&`
+    console.log(characters)
     dibujarCards(characters);
 }
 const irSiguiente = () => {
